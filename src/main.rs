@@ -8,11 +8,21 @@ fn helper_fib(n:i64, a:i64, b:i64) -> i64 {
 }
 
 fn fibonacci(n:i64) -> i64 {
-    return helper_fib(n, 0, 1);
+    helper_fib(n, 0, 1)
+}
+
+fn print_fibo(n: usize) {
+    let ordinal = match n {
+        1 => format!("{}st", n),
+        2 => format!("{}nd", n),
+        3 => format!("{}rd", n),
+        _ => format!("{}th", n),
+    };
+    println!("The {} fibonacci number is {}", ordinal, fibonacci(n as i64));
 }
 
 fn main() {
-    for i in 0..93i64 {
-        println!("{}", fibonacci(i));
+    for i in 0..93 {
+        print_fibo(i);
     }
 }
